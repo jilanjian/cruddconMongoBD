@@ -7,6 +7,7 @@ var connection = mysql.createConnection({
     
 });
 connection.connect();
+
 connection.query('select * from crud', function(err,rows, fields){
     if (err) throw err;
         console.log('no muestra', rows);
@@ -14,4 +15,4 @@ connection.query('select * from crud', function(err,rows, fields){
 
 connection.end();
 
-
+module.exports = connection;
