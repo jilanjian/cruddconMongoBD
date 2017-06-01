@@ -1,0 +1,60 @@
+extends layout
+     
+block content
+    
+    #contenedor
+      header#cabezaPag
+        h1 Bienvenido
+      .titulo Registro Estudiantil
+      section#cuerpoApp
+        form.ingresos(action='/nueva', method='post')
+          .id
+            label#id(for='tex', name='id') Id
+            .insertarId
+              input(type='text', placeholder='Id', name='id')
+          .nombre
+            label#nombre(for='tex', name='nombre') Nombre
+            .insertarNombre
+              input(type='text', placeholder='Nombre', name='nombre')
+          .apellido
+            label#apellido(for='tex', name='apellido') Apellido
+            .insertarApellido
+              input(type='text', placeholder='Apellido', name='apellido')
+          .cedula
+            label#cedula(for='tex', name='cedula') Cedula
+            .insertarCedula
+              input(type='text', placeholder='Cedula', name='cedula')
+          .carrera
+            label#carrera(for='tex', name='carrera') Carrera
+            .insertarCarrera
+              input(type='text', placeholder='Carrera', name='carrera')
+          .fecha
+            label#fecha(for='tex', name='fecha') Fecha de Ingreso
+            .insertarFecha
+              input(type='text', placeholder='Fecha', name='fecha')
+          .button
+            input#boton(type='submit', value='Insertar')
+      section#tabla
+      
+      if crud2.length == 0
+            p No existe
+      else        
+        table#tabla1.muestra
+          caption Informacion de Estudiantes
+          thead
+            tr
+              th Id
+              th Nombre
+              th Apellido
+              th Cedula
+              th Carrera
+              th Fecha de Ingreso
+                    tr
+                        td
+                        td
+                        td
+                        td
+                        td
+                        td
+    footer#pie
+      p Hecho con <3 Jess
