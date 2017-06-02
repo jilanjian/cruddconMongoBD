@@ -35,7 +35,7 @@ app.get('/', function(req, res) {
 
 app.post('/nueva', function(req, res) {
 
-    client.query('INSERT INTO equipos (id, nombre, apellido, cedula, carrera, fecha) VALUES (?, ?, ?, ?, ?, ?)', [req.body.id, req.body.nombre, req.body.apellido, req.body.cedula, req.body.carrera, req.body.fecha],
+    client.query('INSERT INTO crud2 (id, nombre, apellido, cedula, carrera, fecha) VALUES (?, ?, ?, ?, ?, ?)', [req.body.id, req.body.nombre, req.body.apellido, req.body.cedula, req.body.carrera, req.body.fecha],
             function() {
                 res.redirect('/');
             }
@@ -50,13 +50,13 @@ app.get('/editar/:id', function(req, res) {
                     throw err;                  
                 }
                 
-                res.render('editar.jade', { crud2: results[0] });
+                res.render('edit.jade', { crud2: results[0] });
             }
         );
 });
 
 app.post('/actualizar', function(req, res) {
-    client.query('UPDATE crud2 SET id= ?, nombre = ?, apellido = ?, cedula = ?, carrera = ?, fecha = ? WHERE id = ?', [req.body.nombre, req.body.apellido, req.body.cedula, req.body.carrera, req.body.fecha],
+    client.query('UPDATE crud2 SET id= ?, nombre = ?, apellido = ?, cedula = ?, carrera = ?, fecha = ? WHERE id = ?', [req.body.id, req.body.nombre, req.body.apellido, req.body.cedula, req.body.carrera, req.body.fecha],
             function() {            
                 res.redirect('/');
             }
