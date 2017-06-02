@@ -49,12 +49,14 @@ block content
               th Cedula
               th Carrera
               th Fecha de Ingreso
+              
+                for crud in crud2
                     tr
-                        td
-                        td
-                        td
-                        td
-                        td
-                        td
+                        td=crud.id
+                        td=crud.nombre
+                        td=crud.apellido
+                        td=crud.cedula
+                        td=crud.carrera
+                        td=crud.fecha
     footer#pie
       p Hecho con <3 Jess
