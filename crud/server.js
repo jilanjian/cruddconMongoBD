@@ -56,7 +56,7 @@ app.get('/editar/:id', function(req, res) {
 });
 
 app.post('/actualizar', function(req, res) {
-    client.query('UPDATE crud2 SET id= ?, nombre = ?, apellido = ?, cedula = ?, carrera = ?, fecha = ? WHERE id = ?', [req.body.id, req.body.nombre, req.body.apellido, req.body.cedula, req.body.carrera, req.body.fecha],
+    client.query('UPDATE crud2 SET id= ?, nombre = ?, apellido = ?, cedula = ?, carrera = ?, fecha = ? WHERE id = ?', [req.body.nombre, req.body.apellido, req.body.cedula, req.body.carrera, req.body.fecha],
             function() {            
                 res.redirect('/');
             }
