@@ -1,5 +1,5 @@
 body {
-    margin: 0;
+    margin: center;
     font-family: bold;
     background-image: url('../images/fondo10.jpg');
     background-size:cover;
@@ -52,7 +52,7 @@ body {
     
 }
 
-label {
+label form#w{
    
     border-radius: 2px 2px 2px 2px;
     display:block ;
@@ -61,6 +61,20 @@ label {
     height: 24px;
     margin: 3px 10px 3px 0;
     width: 100vh;
+ }
+
+form#q{
+    
+
+    display:flex;
+    margin-left: 10%;
+    color:white;
+    margin-top: 50vh;
+    padding: 10vh;
+    border-radius: 3px 3px 3px 3px;
+    font-size: 25px;
+    font-weight: bold;
+     width: 100vh;
  }
 
 #pie {
@@ -81,7 +95,7 @@ label {
 }
 
 table {
-    
+    text-align: center;
     float: right;
     margin-right: 12%;
     width: 50%;
@@ -93,7 +107,8 @@ table {
    
 }
 
-th, td {
+th, td{
+    text-align: center;
     color: white;
     padding-bottom: 20px;
     border:1px solid white;
@@ -101,4 +116,14 @@ th, td {
     font-weight: bold;
 }
 
- 
+caption {
+    text-align: center;
+   padding: 0.3em;
+   color: #DB7093;
+    background: #fff;
+    font-weight: bold;
+   font-size: 25px;
+}
+
+a{ 
+}
