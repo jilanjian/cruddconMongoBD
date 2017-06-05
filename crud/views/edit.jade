@@ -2,18 +2,16 @@ extends layout
      
 block content
     section
-        form(action='/actualizar', method='post')
+        form(id='q' action='/actualizar', method='post')
             input(type='hidden', name='id', value=crud2.id)
-            label id:
-            input(name='id', value=crud2.id)
-            label nombre:
+            label Nombre:
             input(name='nombre', value=crud2.nombre)
-            label apellido:
+            label Apellido:
             input(name='apellido', value=crud2.apellido)
-            label cedula:
+            label Cedula:
             input(name='cedula', value=crud2.cedula)
-            label carrera:
+            label Carrera:
             input(name='carrera', value=crud2.carrera)
-            label fecha:
+            label Fecha:
             input(name='fecha', value=crud2.fecha)
             input(type='submit', value='Actualizar')

@@ -7,11 +7,8 @@ block content
         h1 Bienvenido
       .titulo Registro Estudiantil
       section#cuerpoApp
-        form.ingresos(action='/nueva', method='post')
-          .id
-            label#id(for='tex', name='id') Id
-            .insertarId
-              input(type='text', placeholder='Id', name='id')
+        form.ingresos(id='w' action='/nueva', method='post')
+          
           .nombre
             label#nombre(for='tex', name='nombre') Nombre
             .insertarNombre
@@ -33,7 +30,7 @@ block content
             .insertarFecha
               input(type='text', placeholder='Fecha', name='fecha')
           .button
-            input#boton(type='submit', value='Insertar')
+            input#boton(type='submit', value='Agregar')
       section#tabla
       
       if crud2.length == 0
@@ -43,7 +40,6 @@ block content
           caption Informacion de Estudiantes
           thead
             tr
-              th Id
               th Nombre
               th Apellido
               th Cedula
@@ -52,11 +48,23 @@ block content
               
                 for crud in crud2
                     tr
-                        td=crud.id
+                                            
                         td=crud.nombre
                         td=crud.apellido
                         td=crud.cedula
                         td=crud.carrera
                         td=crud.fecha
+                        td
+                            
+                            
+                           a(type='submit' href='/borrar/#{crud.id}')
+                                    img(src='' alt='Borrar')
+                           a(type='submit' href='/editar/#{crud.id}')
+                                    img(src='' alt='Editar')
+                           
+                            
+                           
+                                      
+                             
     footer#pie
       p Hecho con <3 Jess
