@@ -55,13 +55,17 @@ app.get('/editar/:id', function(req, res) {
         );
 });
 
+
+
 app.post('/actualizar', function(req, res) {
-    client.query('UPDATE crud2 SET id= ?, nombre = ?, apellido = ?, cedula = ?, carrera = ?, fecha = ? WHERE id = ?', [req.body.nombre, req.body.apellido, req.body.cedula, req.body.carrera, req.body.fecha],
+    client.query('UPDATE crud2 SET nombre = ?, apellido = ?, cedula = ?, carrera = ?, fecha = ? WHERE id = ?', [req.body.nombre, req.body.apellido, req.body.cedula, req.body.carrera, req.body.fecha, req.body.id,],
             function() {            
                 res.redirect('/');
             }
         );
 });
+
+
 
 app.get('/borrar/:id', function(req, res) {
     client.query('DELETE FROM crud2 WHERE id = ?', [req.params.id],
