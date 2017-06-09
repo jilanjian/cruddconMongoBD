@@ -3,7 +3,7 @@ var mongoose = require ('mongoose');
 var app = express();
 
 app.get('/', function(req, res){
-    res.send('<h1>SI CONECTO AL PUERTO 27017</h1>');
+    res.send('<h1>CONECTO AL PUERTO 27017</h1>');
     
 });
 
