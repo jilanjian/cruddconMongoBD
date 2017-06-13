@@ -12,15 +12,26 @@ const port = process.env.PORT || 3001
 app.use(bodyParser.urlencoded({ extended : false }))
 app.use(bodyParser.json())
 
-app.get('/api/estudiantes', (req, res) =>{
-    res.send(200,{estudiantes:[]})
+app.get('/api/estudiant', (req, res) =>{
+    Estudiant.find({},(err, estudiants) => {
+        if (err) return res.status(500).send({message:`Error en Petición: ${err}`})
+        if (!estudiants) return res.status(404).send({message:`Estudiante no esta registrado`})
+        res.send(200, {estudiants})
+    
+})
+})
+app.get('/api/estudiant/:estudiantId', (req, res) =>{
+    let estudiantId = req.params.estudiantId
+    
+    Estudiant.findById(estudiantId, (err, estudiant) => {
+        if (err) return res.status(500).send({message:`Error en Petición: ${err}`})
+        if (!estudiant) return res.status(404).send({message:`Estudiante no esta registrado`})
+        res.status(200).send({estudiant: estudiant})
+    })
 })
 
-app.get('/api/estudiantes/:estudiantesId', (req, res) =>{
-})
-
-app.post('/api/estudiantes', (req, res) =>{
-    console.log('POST/api/estudiantes')
+app.post('/api/estudiant', (req, res) =>{
+    console.log('POST/api/estudiant')
     console.log(req.body)
     
     let estudiant = new Estudiant()
@@ -37,11 +48,28 @@ app.post('/api/estudiantes', (req, res) =>{
 })
 
 
-app.put('/api/estudiantes/:estudiantesId', (req, res) =>{    
+app.put('/api/estudiant/:estudiantId', (req, res) =>{ 
+    let estudiantId = req.params.estudiantId
+    let update = req.body
+    
+    Estudiant.findByIdAndUpdate(estudiantId, update, (err, estudiantUpdate) => {
+        if (err) return res.status(500).send({message:`Error al Act: ${err}`})
+    
+         res.status(200).send({estudiant: estudiantUpdate})
+})
 })
 
-app.delete('/api/estudiantes/:estudiantesId', (req, res) =>{    
-})
+app.delete('/api/estudiant/:estudiantId', (req, res) =>{ 
+    let estudiantId = req.params.estudiantId
+    Estudiant.findById(estudiantId, (err, estudiant) => {
+        if (err) return res.status(500).send({message:`Error en Petición: ${err}`})
+        
+        estudiant.remove(err => {
+            if (err) return res.status(500).send({message:`Error al borrar: ${err}`})
+            res.status(200).send({message: 'El estudiante ha sido eliminado'})
+           })  
+        })
+    })
 
 
 mongoose.connect('mongodb://localhost:27017/crudd', (err, res) => {
