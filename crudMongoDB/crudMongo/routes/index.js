@@ -2,13 +2,15 @@
 
 const express = require('express')
 const estudiantCtrl = require ('../controllers/estudiant')
-const api = express.Router()
-
-api.get('/estudiant', estudiantCtrl.getEstudiants)
-api.get('/estudiant/:estudiantId', estudiantCtrl.getEstudiant)
-api.post('/estudiant', estudiantCtrl.saveEstudiant )
-api.put('/estudiant/:estudiantId', estudiantCtrl.updateEstudiant)
-api.delete('/estudiant/:estudiantId', estudiantCtrl.deleteEstudiant)
+const router = express.Router()
 
 
-module.exports = api
+
+router.get('/estudiant', estudiantCtrl.getEstudiants)
+router.get('/estudiant/:estudiantId', estudiantCtrl.getEstudiant)
+router.post('/estudiant', estudiantCtrl.saveEstudiant )
+router.put('/estudiant/:estudiantId', estudiantCtrl.updateEstudiant)
+router.delete('/estudiant/:estudiantId', estudiantCtrl.deleteEstudiant)
+
+
+module.exports = router
