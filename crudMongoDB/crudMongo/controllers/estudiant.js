@@ -1,6 +1,10 @@
 'use strict'
 
+const express = require('express')
 const Estudiant = require ('../models/estudiantes')
+const app = express()
+
+
 
 function getEstudiant (req, res) {
     let estudiantId = req.params.estudiantId
@@ -23,7 +27,7 @@ function getEstudiants (req, res) {
 }
 
 function saveEstudiant (req, res) {
-     console.log('POST/api/estudiant')
+     console.log('POST/router/estudiant')
     console.log(req.body)
     
     let estudiant = new Estudiant()
@@ -70,3 +74,5 @@ module.exports = {
     updateEstudiant,
     deleteEstudiant
 }
+
+
