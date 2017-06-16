@@ -12,7 +12,7 @@ function getEstudiant (req, res) {
     Estudiant.findById(estudiantId, (err, estudiant) => {
         if (err) return res.status(500).send({message:`Error en Petición: ${err}`})
         if (!estudiant) return res.status(404).send({message:`Estudiante no esta registrado`})
-        res.status(200).send({estudiant: estudiant})
+        res.status(200).send({estudiant})
     })
 }
 
@@ -23,7 +23,6 @@ function getEstudiants (req, res) {
         if (!estudiants) return res.status(404).send({message:`Estudiante no esta registrado`})
         res.send(200, {estudiants})
 })
-    
 }
 
 function saveEstudiant (req, res) {
@@ -37,7 +36,7 @@ function saveEstudiant (req, res) {
     estudiant.carrera = req.body.carrera,
     estudiant.fecha =  req.body.fecha
     
-    estudiant.save((err, estudiantStored) =>{
+    estudiant.save((err, estudiantStored) => {
         if (err) res.status(500).send({message: `ERROR BD: ${err}` })
         res.status(200).send({estudiant: estudiantStored})
 })

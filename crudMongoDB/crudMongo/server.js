@@ -13,8 +13,9 @@ mongoose.connect('mongodb://localhost:27017/crudd', (err, res) => {
     }
     
     console.log('Conexion Estable')
+    
     app.listen(port, () => {
-    console.log(`CORRE EN :${port}`)
+    console.log(`CORRE EN http//localhost:${port}`)
   })
 })
 
