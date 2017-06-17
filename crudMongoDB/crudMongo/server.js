@@ -2,11 +2,11 @@
 
 const mongoose = require ('mongoose')
 const app = require ('./app')
-const port = process.env.PORT || 3003
+const config  = require('./config')
 
 
 
-mongoose.connect('mongodb://localhost:27017/crudd', (err, res) => {
+mongoose.connect(config.db, (err, res) => {
     
     if (err) {
       return console.log(`Err al conecta a la BD: ${err}`)
@@ -14,8 +14,8 @@ mongoose.connect('mongodb://localhost:27017/crudd', (err, res) => {
     
     console.log('Conexion Estable')
     
-    app.listen(port, () => {
-    console.log(`CORRE EN http//localhost:${port}`)
+    app.listen(config.port, () => {
+    console.log(`CORRE EN http//localhost:${config.port}`)
   })
 })
 
