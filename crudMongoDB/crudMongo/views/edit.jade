@@ -1,0 +1,18 @@
+extends layout
+     
+block content
+    section
+        form(id='q' action='/actualizar', method='post')
+            input(type='hidden', name='id', value=crudd.id)
+            label Nombre:
+            input(name='nombre', value=crudd.nombre)
+            label Apellido:
+            input(name='apellido', value=crudd.apellido)
+            label Cedula:
+            input(name='cedula', value=crudd.cedula)
+            label Carrera:
+            input(name='carrera', value=crudd.carrera)
+            label Fecha:
+            input(name='fecha', value=crudd.fecha)
+            input(type='submit', value='Actualizar') 
+                
