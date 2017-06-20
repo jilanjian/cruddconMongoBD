@@ -1,0 +1,71 @@
+
+<div id="contenedor">
+  <header id="cabezaPag">
+    <h1>Bienvenido</h1>
+  </header>
+  <div class="titulo">Registro Estudiantil</div>
+  <section id="cuerpoApp">
+    <form class="ingresos" id="w" action="/estudiant" method="post">
+      <div class="nombre">
+        <label id="nombre" for="tex" name="nombre">Nombre</label>
+        <div class="insertarNombre">
+          <input type="text" placeholder="Nombre" name="nombre"/>
+        </div>
+      </div>
+      <div class="apellido">
+        <label id="apellido" for="tex" name="apellido">Apellido</label>
+        <div class="insertarApellido">
+          <input type="text" placeholder="Apellido" name="apellido"/>
+        </div>
+      </div>
+      <div class="cedula">
+        <label id="cedula" for="tex" name="cedula">Cedula</label>
+        <div class="insertarCedula">
+          <input type="text" placeholder="Cedula" name="cedula"/>
+        </div>
+      </div>
+      <div class="carrera">
+        <label id="carrera" for="tex" name="carrera">Carrera</label>
+        <div class="insertarCarrera">
+          <input type="text" placeholder="Carrera" name="carrera"/>
+        </div>
+      </div>
+      <div class="fecha">
+        <label id="fecha" for="tex" name="fecha">Fecha de Ingreso</label>
+        <div class="insertarFecha">
+          <input type="text" placeholder="Fecha" name="fecha"/>
+        </div>
+      </div>
+      <div class="button">
+        <input id="boton" type="submit" value="Agregar"/>
+      </div>
+    </form>
+  </section>
+</div>
+
+
+<script type="text/javascript">
+    const myHeaders = new Headers();
+    myHeaders.append('estudiant', `Bearer #{estudiant}`)
+    
+    fetch('/api/estudiant', {
+            method: 'GET',
+            body: myHeaders
+            })
+        
+        .then(res => res.json())
+        .then(data => console.log(data))   
+</script>
+    
+
+
+<footer id="pie">
+  <p>Hecho con <3 Jess</p>
+</footer>
+
+
+
+
+
+
+

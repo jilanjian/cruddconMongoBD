@@ -12,4 +12,9 @@ api.post('/estudiant', estudiantCtrl.saveEstudiant )
 api.put('/estudiant/:estudiantId', estudiantCtrl.updateEstudiant)
 api.delete('/estudiant/:estudiantId', estudiantCtrl.deleteEstudiant)
 
+
+
+
+
+
 module.exports = api
