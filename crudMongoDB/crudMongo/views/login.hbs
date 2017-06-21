@@ -5,7 +5,7 @@
   </header>
   <div class="titulo">Registro Estudiantil</div>
   <section id="cuerpoApp">
-    <form class="ingresos" id="w" action="/estudiant" method="post">
+    <form class="ingresos" id="w" action="/api/estudiant" method="post">
       <div class="nombre">
         <label id="nombre" for="tex" name="nombre">Nombre</label>
         <div class="insertarNombre">
@@ -44,7 +44,43 @@
 </div>
 
 
+<section id="tabla" >
+  <caption>Informacion de Estudiantes
+    <thead>
+      <tr action="/estudiant" method="post">
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Cedula</th>
+        <th>Carrera</th>
+        <th>Fecha de Ingreso
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>
+            <a type="submit" href="">
+            <img src="" alt="Borrar"/></a>
+            
+            <a type="submit" href=""> 
+            <img src="" alt="Editar"/></a>
+            
+            </td>
+          </tr>
+        </th>
+      </tr>
+    </thead>
+  </caption>
+</section>
+<footer id="pie">
+  <p>Hecho con <3 Jess</p>
+</footer>
+
+
 <script type="text/javascript">
+    let estudiantList = document.createElement('ul')
+    
     const myHeaders = new Headers();
     myHeaders.append('estudiant', `Bearer #{estudiant}`)
     
@@ -54,16 +90,21 @@
             })
         
         .then(res => res.json())
-        .then(data => console.log(data))   
-</script>
+        .then(data => {
+            data.estudiants.map(estudiant => {
+                let text = document.createTextNode(estudiant.nombre+ " " + estudiant.apellido+ " "+estudiant.cedula+ " " +estudiant.carrera+" "+estudiant.fecha)
+                let elem = document.createElement ('li')
+                elem.appendChild(text)
+                estudiantList.appendChild(elem)  
+            })
+                document.body.appendChild(estudiantList)
+    })
     
-
-
-<footer id="pie">
-  <p>Hecho con <3 Jess</p>
-</footer>
-
-
+    
+    
+    </script>
+    
+    
 
 
 
