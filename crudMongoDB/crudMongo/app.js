@@ -11,15 +11,10 @@ const api = require('./routes')
     
 app.use(bodyParser.urlencoded({ extended : false }))
 app.use(bodyParser.json())
-app.engine('.hbs', hbs({
-           defaultLayout: 'default',
-           extname: '.hbs'
-           }))
-app.set('view engine','.hbs')
-
+app.engine('.jade')
 app.use('/api', api)
-app.get('/login', (req, res) => {
-    res.render('login')
+app.get('/index', (req, res) => {
+    res.render('index')
 })
 
 

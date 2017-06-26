@@ -5,7 +5,7 @@
   </header>
   <div class="titulo">Registro Estudiantil</div>
   <section id="cuerpoApp">
-    <form class="ingresos" id="w" action="/api/estudiant" method="post">
+    <form class="ingresos" id="w" action="/api/estudiant" method="post" >
       <div class="nombre">
         <label id="nombre" for="tex" name="nombre">Nombre</label>
         <div class="insertarNombre">
@@ -44,37 +44,40 @@
 </div>
 
 
-<section id="tabla" >
-  <caption>Informacion de Estudiantes
-    <thead>
-      <tr action="/estudiant" method="post">
+<section id="tabla">
+ 
+    
+      <caption>Informacion de Estudiantes
+    <thead  id="q" action="/estudiant/:estudiantId" method="post" >
+      <tr>
         <th>Nombre</th>
         <th>Apellido</th>
         <th>Cedula</th>
         <th>Carrera</th>
-        <th>Fecha de Ingreso
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>
-            <a type="submit" href="">
-            <img src="" alt="Borrar"/></a>
-            
-            <a type="submit" href=""> 
-            <img src="" alt="Editar"/></a>
-            
-            </td>
-          </tr>
-        </th>
+        <th>Fecha de Ingreso</th>
       </tr>
-    </thead>
+      
+              <tr>
+                 
+                  <td>{{estudiant.nombre}} </td>
+                  <td>{{estudiant.apellido}}</td>
+                  <td>{{estudiant.cedula}}</td>
+                  <td>{{estudiant.carrera}}</td>
+                  <td>{{estudiant.fecha}}</td>
+              </tr>
+                  <td>
+                    <a type="submit" href="" onclick="remove(estudiantId)">
+                        <img src="" alt="Borrar"/></a>
+            
+                    <a type="submit" href=""  onclick="edit(estudiantId)"> 
+                        <img src="" alt="Editar"/></a>
+                  </td>
+                     
+      </thead>
   </caption>
 </section>
 <footer id="pie">
-  <p>Hecho con <3 Jess</p>
+    <p> Hecho con E> Jess </p>
 </footer>
 
 
@@ -103,7 +106,7 @@
     
     
     </script>
-    
+
     
 
 
