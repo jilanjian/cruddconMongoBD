@@ -1,0 +1,32 @@
+<div class="panel panel-default" ng-init="showEstudiante()">
+	<div class="panel-heading">
+	  <p class="panel-title"><span style="color:#5bc0de;" 
+class="glyphicon glyphicon-edit"> </span> Editar Estudiante</p>
+	</div>
+	<div class="panel-body">
+		<form ng-submit="updateEstudiante()">
+    <div class="form-group">
+      <label for="name">Nombre:</label>
+      <input type="text" class="form-control" id="name" ng-model="estudiantes.nombre" value="estudiante.nombre">
+    </div>
+    <div class="form-group">
+      <label for="dept">Apellido:</label>
+      <input type="text" class="form-control" id="dept" ng-model="estudiantes.apellido" value="estudiante.apellido">
+    </div>
+    <div class="form-group">
+      <label for="area">Cedula:</label>
+      <input type="text" class="form-control" id="area" ng-model="estudiantes.cedula" value= "estudiante.cedula">
+    </div>
+    <div class="form-group">
+      <label for="contact">Carrera:</label>
+      <input type="text" class="form-control" id="contact" ng-model="estudiantes.carrera" value="estudiante.carrera">
+      </div>
+      <div class="form-group">
+      <label for="status">Fecha:</label>
+      <input type="text" class="form-control" id="status" ng-model="estudiantes.fecha" value="estudiante.fecha">
+      </div>
+    <button type="submit" style="color:#5bc0de;" class="btn btn-default">Editar</button>
+    <a href="#/estudiantes" class="btn btn-default"> Cancelar</a>
+</form>		
+    <div>
+<div>

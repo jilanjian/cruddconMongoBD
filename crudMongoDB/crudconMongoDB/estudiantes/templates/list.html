@@ -1,0 +1,33 @@
+<div class="panel panel-default" ng-init="getEstudiantes()">
+	<div class="panel-heading">
+	  <p class="panel-title"><span style="color:#5bc0de;" 
+class="glyphicon glyphicon-list"> </span> Lista de Estudiantes</p>
+	</div>
+	<div class="panel-body">
+		<table class="table table-striped">
+			<thead>
+			<tr>
+			  <th>Nombre</th>
+			  <th>Apellido</th>
+			  <th>Cedula</th>
+			  <th>Carrera</th>
+			  <th>Fecha</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr ng-repeat="estudiante in estudiantes">
+			  <td>{{ estudiante.nombre }}</td>
+			  <td>{{ estudiante.apellido }}</td>
+			  <td>{{ estudiante.cedula }}</td>
+			  <td>{{ estudiante.carrera }}</td>
+			  <td>{{ estudiante.fecha }}</td>
+			  <td> 
+			    <a href="#/estudiantes/{{estudiante._id}}/show" class="btn btn-info"> Ver  </a>
+			    <a href="#/estudiantes/{{estudiante._id}}/edit" class="btn btn-success"><span class="glyphicon glyphicon-edit"> </span> Editar </a>
+			  	<a ng-click="deleteEstudiante(estudiante._id)" class="btn btn-danger"><span class="glyphicon glyphicon-trash"> </span> Borrar </a>
+			  </td>
+			</tr>
+			</tbody>
+		</table>		
+    <div>
+<div>
